@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>First Task v1.1</title>
+    <style>
+        /*-----------------format table---------------- */
+        table {
+            border-collapse: collapse;
+            width: 100%;
+            border: 1px solid #c6d1d1;
+            text-align: center;
+        }
+
+        .thead_des {
+            background-color: rgb(221, 226, 238);
+            text-align: center;
+            border: 1px solid #c6d1d1;
+        }
+
+        .tr_des {
+            background-color: rgb(229, 233, 242);
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 8px;
+            border: 1px solid #c6d1d1;
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #e4ecec;
+            text-align: center;
+            border: 1px solid #c6d1d1;
+        }
+
+        /*------------ تنسيق ازالة السطر تحت الرابط الموجود في الايقونات -----------*/
+        .del_line {
+            text-decoration: none;
+        }
+
+        /*تنسيق الكتابة بجانب الايقونة*/
+        .h4_ {
+            display: inline-flex;
+            margin-top: 1.33em;
+            margin-bottom: 1.33em;
+            margin-left: 0;
+            margin-right: 0;
+            font-weight: bold;
+            margin-right: auto
+        }
+    </style>
+    <!--  fontawesomeتضمين مكتبة  -->
+    <script src="https://kit.fontawesome.com/d3312e30e8.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body>
+    <main>
+        <!-- this section include icon & Name & job title -->
+        <section>
+            <div>
+                <!-- this div for icon -->
+                <div>
+
+                    <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABnElEQVRIS7WVr0tEQRDH78BgMBgMFxROULB5RRDUaDAKFkHwguG0qH+AqFkEm4IWMSgYtGmzCP7AYNAmeMFgNBgMBj/f4z1Ylre7b5+8gS+7+2Z2vrOzM/uqlZKlWrL/yn8IegluBNQT/DB+gTa4B1oXIqixbwfMgW5HBmb5flmEYJJN50AkPllGeRBLIOdXoCfHvW1jsxVDoFzfWJE/sz4Go2ABdBnEUQRZzn9xNgA+E6f7jC2DwJmiBkaLYDyJVlXRD/qstLyxHja+6QQnxnqG+bWdIlXGmnVUX7rTSlG5Kn0KTqLTDYIPm0BldxpBoP0vYAiY5XrGej6NzG60JopNUPeF7tE9oFsFGjuS1clFSVRVqp5Og/kIpIsleWXPBriwT+d7i/LeyTdOVTW3WakLPXYhEj1o0y7nrjtQqUr2ktFH0sZGJekU+wRqsLvEej0HSTTBIU6XjHBCJE/YjsWc4NHYoLkIjwwHTeZmn+gNWokheMdY3ama3gV6i2xJ70Tfp4D+XrnvwGdr6kQyAZRCr4TKNLQ/qC+d4A8yI0cZrU9cdgAAAABJRU5ErkJggg=="
+                        width="30" alt="#"> -->
+                    <i class="fa-solid fa-rocket fa-xl" style="color: #000000;"></i>
+                    <br>
+
+                </div>
+                <!-- this div for name -->
+                <div>
+                    <h1>Mhd Ali Ajaj</h1>
+                </div>
+                <!-- this div for job title -->
+                <div>
+                    <h3>Frontend Web Designer</h3>
+                </div>
+            </div>
+        </section>
+        <!-- this section About Me -->
+        <section>
+            <!-- this div for title about ne -->
+            <div>
+                <h4>About Me</h4>
+                <div>
+                    <p>I am a skilled<b> front-end developer</b> experienced in creating visually stunning and
+                        user-friendly
+                        websites and applications. I use <b>UI/UX</b> design principles to deliver high-quality products
+                        that meet
+                        client expectations.
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- this section contact me -->
+        <section>
+            <div>
+                <div>
+                    <h4>Contact Me:</h4>
+                </div>
+                <div>
+                    <div>
+                        <a href="tel:+963994132338" style="display: inline;">
+                            <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABd0lEQVRIS2NkoDFgpLH5DANiAQvQVxVALA/EhUD8hRJfovtADWhYGRAnQw2dD6SrgPgFuZagW7AbaJALmmFLgPxYalnwH4dBE6DBRbI96D54DDRBBocpmUDxGaTaQEwQwcw8AmTYUmrBdKABGVgMAUWyIxDfoNSCEKABq9EM2QPktwDxQVINB6lHDyJQHriPFg+mQP4ZcgzHZgFIrBuIS5AMrASyO6hpgQLQsMtAzAM19AeQtgTiC2iWSAD57dCgW4DLAbjKIlBRAdIMA3eAjEAgvgIVEADSx4FYA8rvAdKl2CzBZQEoLjYDsQeSJlCZVAvEG4B4MRDboBkI8kUqEP9BFsdXmoKC6DSSK3GFArI4yHJQsQIvIAkV1yBLZgNxBDGmQ9WsAdKhMPWELICpA2W+fiDmIMKiKUA1uaRaAFKvAsTpQJwCxKBIxgZOAAVdSQkibIaAfBEAxOZAbALECkAMKiBBydgTiFHqDmKDiIiQwa5k6FsAAAYYNBmrcqzYAAAAAElFTkSuQmCC"
+                                    alt="#"> -->
+                            <!-- <img src="./Assests/phone-solid-24.png" alt="phone"> -->
+                            <i class="fa-solid fa-phone fa-sm" style="color: #0000ff;"></i>
+                            <span>+963994132338</span>
+                        </a><br>
+                    </div>
+                    <a href="mailto.mhd_ali_ajaj.com">
+                        <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABv0lEQVRIS7WVMSh2URjHvUVRFjFYkKKMlIFQvsGgGJSBWGRSpGQwfJJYDDIgbMpgQJSBzYBSyGoSkhSlZDB8g9+/zq3X+c495xjeU7/uuff+n+f/3HPOPSeTl+OWyXH+vBiDOooYgHpogi+4gmvYhVtfkT6DIgJHDDUpSe54vgHr8OHS+Ay2CBiMHMJjdN3wz9anGUwgXIxMnsim6CzEGGjML6E4YKDx3wN9ab6ZmwZ7TlxfMIfobyC5JroWnqAPto1+mut8dqzL4BBBl8dAlZdDGXTAEvQa/QHXnpDBqwl2eSh5PxTCETSafqLVF1WEDB4QVDqyb/JsFu6hBGZg3NI9cl8VMjhD0GIFZicvNcnHHEWc86w1ZGCv/2RYtMa1WjShyZjbHipkKGTQjuAkS1RAPya5QprhImSg9zegvUdNKy1UuXRKLIMfLe1P7kS1CtV2QMr9O8+HYT/WQLpRWI40WEHnmnTvdq21rkBV5mua9El4dolC54H+1lPQ/uRqOgva4C2tgpCB4rQtaFXZJkr+B158nxdjkJjs0El+Ip1o2v+9yRUYayCttu81U61Ouk/vzJiXvzGIyfefJucG30ZCSRmn1mVKAAAAAElFTkSuQmCC"
+                                alt="#" > -->
+                        <!-- <img src="./Assests/edit-location-solid-24.png" alt="location"> -->
+                        <i class="fa-solid fa-location-dot fa-sm" style="color: #0000ff;"></i>
+                        <span>syria</span>
+
+                    </a> <br>
+                    <a href="www.map.google.com">
+
+                        <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABjklEQVRIS2NkoDFgpLH5DERboC36iof1N8N8BgZGjt+s/yOvvhb7QozjiLLAmPeTyF+Wn20M//+nQgz9v+QP05+qK++kHxOyhKAFKgy32XkF+Nr+MzAWoRj2n2EaMxNL1dn3Qh/xWULQAgOB1/VAFzdgM4SRkaHz/HvRKmCw/cNlCV4L9AVeFzEy/G8DambH6UpGhpoL78VaSbbAgP9FKgMjE8hwEQLh/AXoyqrzH8QmY/UlNkF9/lfhQO+DDFciFIlQ+edAuurCB7EF6OoxgshA8JUXw3+w4fpEGg5Tdus/w//Kix/E1yHrQ7FAX/CVDeN/hnagAhsSDYcpPwNMylUXPorvhgnALTAUeKn//z9jGzDreZFpOEzb/n//mCovfRI5CRKAW6DP/3o5I+P/CAoNh2pn3HPhg6grigXA9L4YmN5jqGMBwwFghDuiWIBssIHAq//kWAQ0FCPRYM1ow9MCdO9j8yVFQTRqAUqqBOaJ9cA8EYAkuAYYRKGoSZmwGpz5gJw8gEsPwRqNUssAjniWGWQk+boAAAAASUVORK5CYII="
+                                alt="#"> -->
+                        <!-- <img src="./Assests/home-solid-24.png" alt="Home"> -->
+                        <i class="fa-solid fa-house fa-sm" style="color: #0000ff;"></i>
+                        <span>Eng_Mhd_Ali_Ajaj.com</span>
+                    </a> <br>
+                    <a href="mailto.mhd.ali.ajaj.com">
+                        <!-- <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABnElEQVRIS2NkoDFgpLH5DMPIAkP+1yb/GP5PZmRksKAk2P7/ZzjBwMRQevG92BGQOfAgMhB4uQHI9afEcLje/wzbLnwU80az4NV/qII1QDqETIvgei98EAM7HskHEAtAEob8r0L+MzJMB3JFiLToDeN/hszzH8XWGAggzMFqwW9WBt6rr8W+GPM+E/nLzAKyhJBv1jD//ZN59rPUG23RVzysvxk+wxyKK4gOMjD+m3XhvcQykAJ9/pfpTIyMaUDvGSH7Buj1c//+/5918aP4TJC4geCLKIb/TGlApj0hC8DmAA2Y8ouVoRKHb1BczfaboR3ogBxkB+CMA7Qwf8DA8DfxwgfJAyBxUNyAaFBYg10t8NyBgYF5PpCpgB5XxFoA0vcViGczMf+Zde6t1HWQgJHwM81/f1lTGRj+g4KEG91wooIIiyawbyDi2F1NThBhcxxRYqQEEVEGUhIHQ8QCQ4FXm4Bp2Zcs56JpApaoOy5+FPMECcPLIn3BVzbA8qQfKGZCoSVnGP//rzz/UXwPigUUGopT+zCqMmkVRADmD6wZbrw8sQAAAABJRU5ErkJggg=="
+                                alt="#"> -->
+                        <!-- <img src="./Assests/envelope-solid-24.png" alt="mail"> -->
+                        <i class="fa-solid fa-envelope" style="color: #0000ff;"></i>
+
+                        <span>mail.Eng_Mhd_Ali_Ajaj.com</span>
+                    </a> <br>
+                </div>
+            </div>
+        </section>
+        <!-- this section Follow Me -->
+        <section>
+            <div>
+                <h4>Follow Me:</h4>
+            </div>
+            <div>
+                <a href="#" class="del_line">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACqElEQVRIS7WVPWgTcRTA3/snrUVr7k7NB6WDg18gbZKK4KDQrUM7KDpUpdRBoRkKFuwmqDi4VHEQzSB2sFIREdEGBJduglC4RB2Koku1yTU1lxa00Ob/fNePNLnk8lFslty9/3vv9z7vj7DNP9xm/1AVENSSPSBd3QAUQoTAekBpANQBZEw1fROTgCtOgToCgppxEiVGAOlCpSzZwSsiV1TP7n1fTq8sIKylIkAYIYC22kpI34Eg+rdBRKfT3sVCmxJAuyfZK4QYr82xTYtoWM/6RxwB7XvmW4XMfWIF1QEww70YBGic1E3N3A8/mlS1+Q7Lrlr6RLBEQh5PZAKfN+zzGRzTfis5ufwQEJ1q/lNKuJxY8L0rhIfU1E1u+I1NGb1xucXAVNo7a8nyAGtakMRb59Lga930ntk4b9udPiKEPM2T1cWyzkI7QuqLZ/xjxQBl7hEiDTgCEEf0jHfYOu/wGAekgK8VghnjYPpsAOMDR3PC2Yhu6aafywEQUo1L/DdaYRC+6abvYBGAjaZZcOg/AVIMWF3KfA/CqjHFc99hA5isqFWIFIKq8ZKdnLXpcAbew+xebjZZMca5RL31AhwCi3FgPbYS2cdtFcVznzu1Bm3ibDTTejrqNZoblnP71uQuq9nu4sDwPmcwVASoPqa1N1lKeT6xEHheBLC2UlF2jZYp03pwtQIw1pjb0f9x0TNfBLBegp5UFwrxhJe+pbSx1QEc3BJve38863uxYV/ysQuqyesI4vZWADw1j7n2Vwpty36ug+rcEAJdY8WCTCpmYPKI33XvXLk39avlT1WApRBSZzt5Qp7yY+uagSNghlBG4pnARGnWBYtW7nC1L3yzgcSLIOhLPON7YMnCinGOELqR6JmS9U1u6cp0AtYrr3rp1+vQrv8PiKkJKPNNQlYAAAAASUVORK5CYII="
+                        alt="#">
+                </a>
+                <a href="#" class="del_line">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAC8UlEQVRIS8VVTUhUURQ+5z6HpLI3UzkzRlCtMtJxhH6sLIIgCmyvUGBQ0CIXIS4qoh8iggoDbWVQrXTRIkgoikKwwELyjQq6aOGiaGbK5o0JiTPv3r43PzozPXVciBce8+be757v/HznPKYVXrzC9ml1CILuH9uZtFZFVKcUVTFTqVOkOJvB2Si8HEha4tHIn83jhbj/IghsCDcKIboAXA8D47YBvE8vkEobYztQmSIj2WLE/Y9zsXkEtudE2ggAXy1LNDl55ERUXfarUtNkN86q8Ow1TK+RxeUR1LqjHUhLM5FVbZgVE8UIIOiOvidFY8TWPaW0MWZ+bpjlZxwJAH7DxNqQWX6s0HiNJ1rPUtWl9lkOwoG+QNn3nUJzjcPL/iHTeyRNpkqNuO+gI0GNHv2LfPYgxLNZwO51Ub/LxaiJasgn5d5EQp1fU5r0fJncMmafgeAJfppxfy4zBTWIKmx0wpuWrDGQvgLpCSZxm6V8lizRZtiyTmPvKgr7IRT3nsxiiyKApzcN03fDvlTjCTewEi9h6C4MXc6NACm7yIo6FMtToZi/t9gIYkjwUxTpUorAHbmFmlwjVvVGzPcxlyCgmzsEz4YUqfaQ6bueS0Dk8himx0yVK/cSQswjCOrRO0C0KWkdCk1VfM7F1rpj2xQlRqCgTiPuvVIsAVTKD+ciyKQIymiDMu7nOaOHzxGLruWmCASEFKVVdJRUSUz/2Y+C7iGSbYmE6KG1NO2alY0w3o7ajHri5Yf7iJNF1cBJpnZ3o4G6QZLugcyC8QFmqym3IZdUUa078k6hJRHB8XzNpxUlVMl+e19y8pMn5nud9XxeppG3SLGO+/uye46jQgpt1/DvTd8KSRb7H9g4uVVICw3HLxYcFfbQEkIOIR2DIGkqliRj3B529VLKA8NT/gHHCFLa1yMXMLA68DqDx57v9rhebFXNfzPmm3RBgowaggi1FV2N39QIXmxNAAsnkg/sAVgIXJ1P5nKKuxR2xSP4B7ReXCj5zXckAAAAAElFTkSuQmCC"
+                        alt="#">
+                </a>
+                <a href="#" class="del_line">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAADaElEQVRIS7VWX0hTYRT/zt1WUhO03UFtu7HltKAeFAwUhJR8NBD6A4E+CBEFST7oo1jUQ2AR0SKhh4KChIqCfKkeDBQUDBIiTHelS7sL6d6VkA8ztns633X37u5f+pAXxvad73znd87vd853B2ybH9jm+GwTgEm35JO6EOAkIrYBMJEnhMh0AJgGxBeJVGKCsY5MpUQrAgR9y8cFwPPI2Jl/VgnsJYAwlvhx4G05vzIAlLUoDVDga3SgaosUpinQcEKP3iz2LwGQRHmQgo+WC0zUKESTTntHyoFTsKFikAKAgG/xkACujwWHgc0ahjG8I+v5oKxGVi3goH+pEVAYoXW3I5m0gdmm76mDXyybA2DSHfJLUwxZi70JVLaWuMFFlMTlZhLa3EPBmE5qDfP8d8gX72EAj/MgMK/q345awtsAkk/uRhLM4Tih6nUn9tYshN1uz0OytxfR9mod1ns17fAagd9HhhfsfcReNVX/hK9tgJC4TFlgj+WEBkrJn+pKSJRmyNZMn/ekjZsOtNmBgMVULdofCCyKwh+XZp9lbDypR88WAAR98lcSMJxzklU9Wh8Ul7qACa95cFp38L2gKE85QFbJXmtS5Zc/Eb1cfD4nSjIVjRRVIP8mg9cEQHiupupOh8T4FSpyxNkdRMc7oqPTytYNrn2KFlkJ+ZafMcBTOfsaAVcXA/ASzUmloCRUXVNQjA8Ag9uIRl8y1fDIzFSUf9FXjQVAgUyaqYIZR4OUBZgkv3Y7s4yrNuPJinRogai7mtCi14N74i0gANck92wkUgxcniK/fJeCXbKP5oaGMp6jFG/RAI0TZeeougeWDzLjYlJvGCvuQGqGUpFL25RliJ4Ybz/iOcJ5zg0ir5RTFCN6hhij+RH3z5FwjTawg9KCSaZWpSnOO5p65zrC7//s3c12eRVN0cPhsFtRImlu24lVT8mry0mb2yu08v0CkfnC0Za2v1VursJRquiegKDQ9B6j37xrQvngLI1gtFpTXgKwAbLROQ6EfjUVjVGXFGjkCJqXfLPLzvIkYfltOmiuzbFXSWApQau95QKTbevXdR4k3s6YQDOQvWOWCgK/j8o8MI+Q7XPS4nTa9JUZCARqYN11GQTWSW0cpcNV/JVJt9gsQ+ONp9ozbglagbYKRf8n87b/q/gLFQ10KDmMJJQAAAAASUVORK5CYII="
+                        alt="#">
+                </a>
+                <a href="#" class="del_line">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAABgUlEQVRIS2NkoDFgpLH5DPS1wMTz2XqgjwIo8xXjmjPbJUNhZqD4AGjBf8oMh+g+s10Kbi5uC/4z7GBgZPzCwPAf5CMWUiwmaAEjA+OW09slfUGGmng+Xw60JIKqFgCjfsmZbVKxIENNPZ7N/s/IkEJdCxgY/jAyMnX8+/+fg5Hhfw7QcA5qW/ACaOANqKEaQFoCiA+A+YxA9n8GBSDrBJD9BMg2ALJ1kB1AMA7+MzIuOLtNMhGkydjr+XzG//8TYJpMvZ55/PvD8ODsLimYAxhMPJ42ABNEPcwSiizAFlQODv9ZvnA+fw6UEyEqmeLzAdSw05Bg+Rd5ZrvMGnBq83q2GxhcLhRbYOr1xOD/f6bzEJ8wzgDm2kzkoKTcAo9nMcBkuxhkEDafEmUBUNEGYEQFIrvsD/tPwQsbFD8Yez4LAGZ/UJkFAhjqRowFjHeA4XwEHI3/GWyAoa0CCm8I/78KkAKKgXkY6ogNImgQk0fhy2i0rXDIcy9+XfStk2nhAwBkGBQowZUyKQAAAABJRU5ErkJggg=="
+                        alt="#">
+                </a>
+                <a href="#" class="del_line">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAADQElEQVRIS8VVTUhUURQ+575xdMqFkYZOE1i0CGphjWO1akRLRxRcRARtGmgmhKJaREi5spBoUyRIPkGhTYsCKdGxrGYTln+4CVyV0Dgj/YCRYdq8ezp3fp/jNEogPbjKPe+8853vOz+DsMkPbnJ82DCA80R4H2rQxV9EKQoXJ5/bZzaS3LoAVTWh7Uae8CGiD4D2xIPiByLStd9SH3vp+JYLKCeAylpo2EtARxDwLSEVxcITLiRt0iBvLjZZAdxusvy0hS8TYHssIFDb1iX73UVb5IW6Fy6VHc/2PhjEaCabNQCV9ZEGTpHlgGY+TySBPhWwD6sPKz3h1/yvaGLIflDdXfWhGgnoZ/lO8bUfCPWJQNmgGSQF4KybLRMi3ydB+hHEcjaNMwFUoIrmj0WWZaufefpZtgIBolvKZX1yuDwSZ594KuvDQ3yrV1pn09XZFC7GKI4qdw2M6ndDjpA5U3O92B5kltWrATxhUgb+M4tkeCcCu4Jp8LnTgHhfyZOwLUqSV6YCjr60zyc3odbLGZcrGwPEkk8ziANM8ynm40CCHtLEPZTUwdQb2XOGg3rVRwK0h5zKXmY7QAJb0ZCXCOEcv/rKZ57PgawAhNgHGl1lKbo4wMm0BNi5tKS1vg/uWFS2/e7PhTab0cE+F0w+j8lCLWDgHSQ6+38AzBKxep1czNtR1NpVRsnaxOqU0FoxtpDRZoB2LcEmt0QJuiHW3Ts+vHMkSf9QQ6hRkGDZwJH0kShbpgYdA0kfV91cLdejN+mzRiKXJzKqxp+LOaJxMTPbMNbvK/mxNo1al49O9+9eSOsPcNgTchgoerkNa/kEJgJ2z6ouctZ9KUNcOQ8o1FL7zk56vjWv583Tkh+pVsyYZGXn+dgiDPARqWUI24CkTmR9MDlcsnrQkkGqGuYbJRFPJjVxHR4JQH1sqPSVer9mVXgixySQj3v9DPs+E4jdY4OlKdlWMTDTVctusSB8g4frulIkc9mpKa30zHGLIrcqFADRrcJf9psbWnZmIFdDqIKIdeWVY17XLJ8aJrfqOkTpHR90qAHN+qz7g5NRG3s8CoYztf5ngFQbxtnosfAofbmyNoOty+BvmW3UvukAfwA+kqQozUs6SQAAAABJRU5ErkJggg=="
+                        alt="#">
+                </a>
+                <a href="#" class="del_line">
+                    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAACPUlEQVRIS+1VQWsTQRSeN7tC1F4EKx6sLImWZDeCB3vwlkAPelNEEPQqKngwJylYEPTgQag3PbSIeBXMDxCaQ28KCu1sKmziHnootQcPBaNm9/lNzMSYbrsptbcGhp3Zee/75n3fmw2JPf7RHuOLfYJUhXsS5U8tlpKiia11meFQKW8jFS0hoEfg5nzeBqAlBM0eG1ut1Grltolzs+rhYI7f9P55l0QAMLHal+iYOU4wXW+4j826kPPnBwmwX+5/t4kAILX+IIAUEfQRSTZG1W+4l3ciVSqB43zJHLK+fwXoCMYLENzRBKXSvL22cvyRYL6GJaqkFTzfURRPqdDrKbBZIhafYhlVNIjFsJfpOm7LDSzXJUcXl5pnPug9LQ+SdWNsCBYBYordKkOK+LwhGdZkHFRU6k33mQaHubcF0XNMv5HgCdXwgvHxz0ftKIaUfAJ7T/ygMKVjkwhCoL3q6EzyMOaTiDrb1b0jETruLdaXMBZAMGc8YYFqhZjECBB3OpFg0OTOif8CtinDR/iHfA/ivAFOeLZAcHBogkLWv0ckZnRCTFFZsn0fUlzQpsYR3UwiWg4L4VAExeziuVjar82Jbfo1FvGBW6j0AQBaqGjU3HIvp+7Ggq5ISKca7vRWHmxdOdEbmHfV89QIt2S9Yyi6C0ZWoT/m8Etbx1xWTW9hJwQBkuZGT649NZ+KvFN3yOKX3VY1h1rq3vaqebHr/wPdnjL+WbTacrn/gv03gm066U+npwXsdn+fIFXB37qz9hmbaKxcAAAAAElFTkSuQmCC"
+                        alt="#">
+                </a>
+
+            </div>
+        </section><br>
+        <!-- this section Experience -->
+        <section>
+
+            <!-- <div style="display: inline-flex;"></div> -->
+            <div style="display: flex; justify-content: flex-start; align-items: center; gap: 20;">
+                <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABgAAAAYCAYAAADgdz34AAAAtklEQVRIS2NkoDFgpLH5DIQsMAE6YDIQW+BwyAmgeCkQH8HlUEIWbABq9Cfgy21AeW9yLfgP1YjLIYTkCQYRIQMIyaNYQCi8iU0PKPGC7HViwptYS+DxgmwBzLvEGkJIHdjs4WUBIS+TJU9KEKHnBUJxRnIc0NwCUoOIZB+MWsBAKFVQHESbgCb4kmoKDvU7gOKe6EWFDVCgH4hBpSol4AxQcyUQ70G3gBJDceolVGVSbCnNLQAAO6MfGYPMKUcAAAAASUVORK5CYII="
+                    alt="#">
+                <!-- <span class="h4_"> Experience </span> -->
+                <h4 >Experience</h4>
+            </div>
+            <div style="display: inline;">
+                <ul>
+                    <li>Web Designer</li>
+                    <li>Web Developer</li>
+                    <li>Software Engeneering</li>
+                </ul>
+            </div>
+        </section>
+        <!-- this section Education -->
+        <section>
+            <div>
+                <div style="display: flex; justify-content: flex-start; align-items: center; gap: 20;">
+                    <i class="fa-sharp fa-solid fa-graduation-cap" style="color: #000000;"></i>
+                    <!-- <span class="h4_">Education</span> -->
+                    <h4 style="display: inline">Education</h4>
+                </div>
+                <div>
+                    <ul>
+                        <li>Information Technology</li>
+                        <li>Master Web sinace</li>
+                        <li>Software Engeneering</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- this section programming skills -->
+        <section>
+            <div>
+                <div style="display: flex; justify-content: flex-start; align-items: center; gap: 20;">
+                    <i class="fa-solid fa-code"></i>
+                    <!-- <span class="h4_"> programming skills</span> -->
+                    <h4 style="display: inline;">programming skills</h4>
+                </div>
+                <div>
+                    <ul>
+                        <li>HTML 5</li>
+                        <li>CSS & SCSS</li>
+                        <li>JAVASCRIPT</li>
+                        <li>JSON</li>
+                        <li>PHP</li>
+                        <li>MYSQL</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <!-- this section interestes -->
+        <section>
+            <div>
+                <div>
+                    <i class="fa-solid fa-star"></i>
+                    <h4 style="display: inline;">interestes</h4>
+                    <!-- <span class="h4_">interestes</span> -->
+
+                </div>
+                <br>
+                <div>
+                    <i class="fa-solid fa-palette" style="color: #000000;"></i><span>Art</span><br>
+                    <i class="fa-solid fa-book" style="color: #000000;"></i><span>Book</span><br>
+                    <i class="fa-solid fa-film" style="color: #000000;"></i><span>Movies</span><br>
+                    <i class="fa-solid fa-headphones" style="color: #000000;"></i><span>Musuic</span><br>
+                    <i class="fa-solid fa-gamepad" style="color: #000000;"></i><span>Games</span><br>
+                </div>
+            </div>
+        </section>
+        <!-- this section Contact US -->
+        <section>
+            <form>
+                <div>
+                    <div>
+                        <h3>Contact Us</h3>
+                    </div>
+                    <div>
+                        <span>Name:</span><input type="text" placeholder="Name">
+                        <!-- <span>Name:</span><input type="text" placeholder="Name"/> -->
+                        <span>Email:</span><input type="email" placeholder="Email">
+                        <span>Message:</span><textarea></textarea>
+                        <button>send message</button>
+                    </div>
+                </div>
+            </form>
+        </section>
+        <!-- this Div Map -->
+        <br>
+        <div>
+            <h4></h4>
+            <iframe
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d106456.35619931646!2d36.36529756546376!3d33.50759136629075!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1518e6dc413cc6a7%3A0x6b9f66ebd1e394f2!2z2K_Zhdi02YLYjCDYs9mI2LHZitin!5e0!3m2!1sar!2snl!4v1707825422151!5m2!1sar!2snl"
+                width="300" height="300" style="border-radius:360px ;border-color: beige;; margin-left: 3%;">
+            </iframe>
+        </div>
+        <Br><br><br>
+        <!-- this section Table -->
+        <section>
+            <div>
+                <table>
+                    <!-- table header -->
+                    <!-- <thead style="background-color: rgb(150, 151, 152);"> -->
+                    <thead class="thead_des">
+                        <th>Name</th>
+                        <th>Grade1</th>
+                        <th>Grade2</th>
+                        <th>Grade4</th>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Ali</td>
+                            <td>65</td>
+                            <td>43</td>
+                            <td>78</td>
+                        </tr>
+                        <!-- <tr style="background-color: rgb(193, 197, 205);"> -->
+                        <tr class="tr_des">
+                            <td>Adnan</td>
+                            <td>99</td>
+                            <td>88</td>
+                            <td>90</td>
+                        </tr>
+                        <tr>
+                            <td>Mhd</td>
+                            <td>77</td>
+                            <td>65</td>
+                            <td>67</td>
+                        </tr>
+                        <!-- <tr style="background-color: rgb(193, 197, 205);"> -->
+                        <tr class="tr_des">
+                            <td>samer</td>
+                            <td>67</td>
+                            <td>65</td>
+                            <td>56</td>
+                        </tr>
+                        <tr>
+                            <td>yousef</td>
+                            <td>98</td>
+                            <td>45</td>
+                            <td>87</td>
+                        </tr>
+                        <!-- <tr style="background-color: rgb(193, 197, 205);"> -->
+                        <tr class="tr_des">
+                            <td>Mhd</td>
+                            <td>77</td>
+                            <td>65</td>
+                            <td>67</td>
+                        </tr>
+                        <tr>
+                            <td>gourge</td>
+                            <td>67</td>
+                            <td>65</td>
+                            <td>56</td>
+                        </tr>
+                        <!-- <tr style="background-color: rgb(193, 197, 205);"> -->
+                        <tr class="tr_des">
+                            <td>saed</td>
+                            <td>98</td>
+                            <td>45</td>
+                            <td>87</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+        <!-- this section About Us -->
+        <section>
+            <div>
+                <div>
+                    <h4>About Us</h4>
+                </div>
+
+                <div>
+                    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Maxime dicta eaque cum repellendus
+                        incidunt
+                        explicabo delectus culpa facere eius vel nisi, minima similique neque adipisci minus, illum
+                        eligendi
+                        voluptas officiis.
+                    </p>
+                </div>
+            </div>
+
+        </section>
+        <!-- this section Contact info -->
+        <section>
+            <h4>Contact Info </h4>
+            <div>
+                <p>Email : mohammad10635@gmail.com</p>
+                <p>Phone : +963-994132338</p>
+            </div>
+        </section>
+    </main>
+    <!-- this Footer Follow Us -->
+    <footer>
+        <div>
+            <div>
+                <h4>Follow Us</h4>
+            </div>
+            <div>
+                <ul>
+                    <li><a href="http://www.Twitter.com">Twitter</a></li>
+                    <li><a href="http://www.Instgram.com">Instgram</a></li>
+                    <li><a href="http://www.linkedin.com">LinkedIn</a></li>
+                </ul>
+            </div>
+        </div>
+
+    </footer>
+</body>
+
+</html>
